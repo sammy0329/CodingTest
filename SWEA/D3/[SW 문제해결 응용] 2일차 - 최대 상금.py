@@ -1,19 +1,28 @@
-import sys
-# t=int(sys.stdin.readline())
+def sel_sort(arr,n):
+    
 
-# for i in range(1,t+1):
-#     data,change=map(int,sys.stdin.readline().rstrip().split())
-#     data=str(data)
-#     length=len(data)
-#     data_li=set(data)
+    if n>len(arr):
+    for i in range(0, n - 1):
 
-#     for j in range(length):
-#         data
+        max_idx = i # 최솟값(min) 대신 최댓값(max)을 찾아야 함
 
-data,change=map(int,sys.stdin.readline().rstrip().split())
-data=str(data)
-length=len(data)
-data_li=set(data)
-for j in range(length):
-    data
-print(max(data_li))
+        for j in range(i + 1, n):
+
+            if arr[j] > arr[max_idx]: # 부등호 방향 뒤집기
+
+                max_idx = j
+
+        arr[i], arr[max_idx] = arr[max_idx], arr[i]
+
+ 
+
+arr,n = map(int,input().split())
+arr_=list(str(arr))
+arr=list()
+
+for i in range(len(arr_)):
+    arr.append(int(arr_[i]))
+
+sel_sort(arr,n+1)
+
+print(arr)
